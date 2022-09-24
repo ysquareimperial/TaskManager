@@ -42,6 +42,7 @@ contract TaskManager{
 
     //function that stores inprogress tasks in an array called inProgressTasks.  
     function updateInProgressTaskArray( ) public payable {
+        delete inProgressTasks;
         for (uint i = 0; i < tasks.length; i++) {
         if((keccak256(abi.encodePacked((tasks[i].taskStatus))) == keccak256(abi.encodePacked(("inProgress"))))){
               inProgressTasks.push(
@@ -54,6 +55,7 @@ contract TaskManager{
 
     //function that stores completed tasks in an array called completedTasks.
     function updateCompletedTaskArray( ) public {
+    delete completedTasks;
         for (uint i = 0; i < tasks.length; i++) {
         if((keccak256(abi.encodePacked((tasks[i].taskStatus))) == keccak256(abi.encodePacked(("completed"))))){
               completedTasks.push(
